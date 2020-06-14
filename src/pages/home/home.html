@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-icon name="wifi"></ion-icon>
+      LOCALIZADOR
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <form novalidate [formGroup]="cepForm">
+      <!--Referência do form criado no home.ts-->
+      <ion-item margin-bottom>
+        <ion-label floating>INFORME O CEP</ion-label>
+        <ion-input type="tel" [(ngModel)]="cep" formControlName="cep" [brmasker]="{mask:'00000-000', len:9, type:'num'}" required>
+        </ion-input>                                                   <!--Implementação da máscara de CEP do plug-in BrMaskerModule-->
+      </ion-item>
+    </form>
+
+    <button ion-button block (click)="getEndereco();">BUSCAR</button> <!--Especificação do tipo de botão e função de chamada de serviço ViaCep-->
+
+  </ion-list>
+  <ion-list *ngIf="endereco.cep">
+    <h3> Resultado:</h3>
+    <ion-icon name="home"></ion-icon>
+    <ion-item>
+      <ion-label floating>Cep</ion-label>
+      <ion-input type="text" [(ngModel)]="endereco.cep" disabled></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Logradouro</ion-label>
+      <ion-input type="text" [(ngModel)]="endereco.logradouro" disabled></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Bairro</ion-label>
+      <ion-input type="text" [(ngModel)]="endereco.bairro" disabled></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Cidade</ion-label>
+      <ion-input type="text" [(ngModel)]="endereco.localidade" disabled></ion-input>
+    </ion-item>
+
+    <ion-item margin-bottom>
+    <button ion-button block (click)="goMapaPage()">LOCALIZAR NO MAPA</button>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

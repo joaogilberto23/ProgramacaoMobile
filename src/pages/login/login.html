@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-icon name="wifi"></ion-icon>
+      LOCALIZADOR
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-input placeholder="Usuário"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="Senha" type="password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full (click)="goHomePage()">ENTRAR</button><br/>
+  
+  <button ion-button full block color="light" (click)="goCadastroPage()">CADASTRAR</button><br/>
+
+  <button (click)="entrarFb()" ion-button block color="facebook">
+  <ion-icon name="logo-facebook"></ion-icon> &nbsp; ENTRAR COM FACEBOOK</button><br/>
+
+</ion-content>
