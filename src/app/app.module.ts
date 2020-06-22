@@ -13,6 +13,9 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { MapaPage } from '../pages/mapa/mapa';
 import { CadastroPage } from './../pages/cadastro/cadastro';
 import { LoginPage } from './../pages/login/login';
+import { DatabaseProvider } from '../providers/database/database';
+import { SQLite } from '@ionic-native/sqlite';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { LoginPage } from './../pages/login/login';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ViacepProvider,
-    Geolocation    
+    Geolocation,
+    DatabaseProvider,
+    SQLite,
+    Facebook    
   ]
 })
 export class AppModule {}
